@@ -1,1 +1,0 @@
-A simple database project using db4o.
