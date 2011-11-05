@@ -1,9 +1,8 @@
 A simple database built using db4o.
 
-TODO:
+- - - - -
+This is a simple practise project.
 
-* Model
-* GUI
 
 
 
