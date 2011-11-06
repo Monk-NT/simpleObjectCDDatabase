@@ -12,8 +12,7 @@ namespace cddb.Model
     {
         private string name;
         private List<Album> albums = new List<Album>();
-        private  Album defaultAlbum = new Album("noAlbumsYet","noAlbumsYet");
-     
+            
      
         public string Name
         {
@@ -35,7 +34,7 @@ namespace cddb.Model
         public Artist(string name)
         {
             this.name = name;
-            albums.Add(defaultAlbum);
+            
         }
 
         public Artist(string name, List<Album> albums)
@@ -56,6 +55,11 @@ namespace cddb.Model
         public override string ToString()
         {
             return name;
+        }
+
+        public void removeAlbum(Album album)
+        {
+            albums.Remove(album);
         }
 
 

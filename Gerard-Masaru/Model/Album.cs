@@ -37,5 +37,21 @@ namespace cddb.Model
             
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Album)
+            {
+                Album a = (Album)obj;
+                if (this.cdName.Equals(a.cdName))
+                {
+                    if (this.cdYear.Equals(a.cdYear))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 }

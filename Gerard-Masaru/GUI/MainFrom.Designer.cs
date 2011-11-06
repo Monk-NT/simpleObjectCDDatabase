@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lwMain = new System.Windows.Forms.ListView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
             this.colArtist = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lwMain
@@ -42,12 +42,28 @@
             this.colArtist,
             this.colAlbum,
             this.colYear});
+            this.lwMain.FullRowSelect = true;
             this.lwMain.Location = new System.Drawing.Point(12, 12);
             this.lwMain.Name = "lwMain";
             this.lwMain.Size = new System.Drawing.Size(708, 291);
             this.lwMain.TabIndex = 0;
             this.lwMain.UseCompatibleStateImageBehavior = false;
             this.lwMain.View = System.Windows.Forms.View.Details;
+            // 
+            // colArtist
+            // 
+            this.colArtist.Text = "Artist";
+            this.colArtist.Width = 308;
+            // 
+            // colAlbum
+            // 
+            this.colAlbum.Text = "Album";
+            this.colAlbum.Width = 305;
+            // 
+            // colYear
+            // 
+            this.colYear.Text = "Year";
+            this.colYear.Width = 85;
             // 
             // btnAdd
             // 
@@ -67,21 +83,7 @@
             this.btnDel.TabIndex = 2;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
-            // 
-            // colArtist
-            // 
-            this.colArtist.Text = "Artist";
-            this.colArtist.Width = 308;
-            // 
-            // colAlbum
-            // 
-            this.colAlbum.Text = "Album";
-            this.colAlbum.Width = 305;
-            // 
-            // colYear
-            // 
-            this.colYear.Text = "Year";
-            this.colYear.Width = 85;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // MainForm
             // 

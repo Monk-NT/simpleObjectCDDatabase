@@ -36,6 +36,9 @@ namespace cddb.cddbDAO
         {
             try
             {
+                Artist veljko = new Artist("veljko");
+                veljko.addAlbum(new Album("albumslika","1992"));
+                db.Store(veljko);
                 db.Store(new Artist(name));
             }
             catch (Exception e)
@@ -66,7 +69,22 @@ namespace cddb.cddbDAO
             Artist a = new Artist(null);
             IObjectSet res = db.QueryByExample(a);
             List<Artist> artists = iterateOverResult(res);
+            
+
             return artists;
+        }
+
+        public void deleteAlbum(string artist, string albumName, string albumYear)
+        {
+            IObjectSet res = db.QueryByExample(new Artist(artist));
+            Artist found = (Artist) res.Next();
+            if (found.Albums.Count == 0)
+                db.Delete(found);
+            else
+            {
+                found.removeAlbum(new Album(albumName, albumYear));
+                db.Store(found);
+            }
         }
 
         private List<Artist> iterateOverResult(IObjectSet result)

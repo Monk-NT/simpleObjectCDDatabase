@@ -29,13 +29,21 @@ namespace cddb.GUI
             lwMain.Items.Clear();
             List<Artist> artists = SimpleAccessControl.getInstance().listArtistsAndAlbums();
             foreach(Artist artist in artists)
-                foreach (Album album in artist.Albums)
+                if (artist.Albums.Count == 0)
                 {
-                    ListViewItem item = new ListViewItem(artist.ToString());
-                    item.SubItems.Add(album.CdName);
-                    item.SubItems.Add(album.CdYear);
+                    ListViewItem item = new ListViewItem(artist.Name);
                     lwMain.Items.Add(item);
-                    
+                }
+                else
+                {
+                    foreach (Album album in artist.Albums)
+                    {
+                        ListViewItem item = new ListViewItem(artist.ToString());
+                        item.SubItems.Add(album.CdName);
+                        item.SubItems.Add(album.CdYear);
+                        lwMain.Items.Add(item);
+
+                    }
                 }
         }
 
@@ -43,7 +51,17 @@ namespace cddb.GUI
         {
             addNewArtistForm f = new addNewArtistForm();
             f.Show();
+            populateDataGrid();
      
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(lwMain.FocusedItem.Text);
+           // SimpleAccessControl.getInstance().deleteAlbum(lwMain.FocusedItem.SubItems[0].Text,
+             //                                             lwMain.FocusedItem.SubItems[1].Text,
+               //                                           lwMain.FocusedItem.SubItems[2].Text);
+            populateDataGrid();
         }
 
        
